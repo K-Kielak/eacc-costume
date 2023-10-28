@@ -92,7 +92,6 @@ byte E::write(int startingX) {
 
 
 void setupLetterBuildingBlocks(LiquidCrystal lcd) {
-  // assignes each segment a write number
   lcd.createChar(8,LT);
   lcd.createChar(1,UB);
   lcd.createChar(2,RT);
@@ -108,6 +107,7 @@ void writeText(LiquidCrystal lcd, Letter** text, int textLength) {
   for (int i = 0; i < textLength; i++) {
     xPos = text[i]->write(xPos);
 
+    // Add space between each character
     lcd.setCursor(xPos, 0);
     lcd.write(254);
     lcd.setCursor(xPos, 1);
