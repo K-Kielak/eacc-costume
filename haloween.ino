@@ -2,7 +2,7 @@
 
 #include "letters.h" 
 
-const int RS = 12, EN = 11, D4 = 6, D5 = 5, D6 = 4, D7 = 3;
+const int RS = 2, EN = 3, D4 = 4, D5 = 5, D6 = 6, D7 = 7;
 LiquidCrystal lcd(RS, EN, D4, D5, D6, D7);
 
 const Letter* DONT[] = {new D(lcd), new O(lcd), new N(lcd), new T(lcd)};
