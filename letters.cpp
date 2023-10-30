@@ -89,7 +89,44 @@ byte E::write(int startingX) {
   return startingX+3;
 }
 
+R::R(LiquidCrystal &lcdRef): Letter(lcdRef) {}
+byte R::write(int startingX) {
+  lcd.setCursor(startingX,0);
+  lcd.write(255);
+  lcd.write(6);
+  lcd.write(2);
+  lcd.setCursor(startingX,1);
+  lcd.write(255);
+  lcd.write(254);
+  lcd.write(2); 
+  return startingX+3;
+}
 
+K::K(LiquidCrystal &lcdRef): Letter(lcdRef) {}
+byte K::write(int startingX) {
+  lcd.setCursor(startingX,0);
+  lcd.write(255);
+  lcd.write(4);
+  lcd.write(5);
+  lcd.setCursor(startingX,1);
+  lcd.write(255);
+  lcd.write(254);
+  lcd.write(2); 
+  return startingX+3;
+}
+
+B::B(LiquidCrystal &lcdRef): Letter(lcdRef) {}
+byte B::write(int startingX) {
+  lcd.setCursor(startingX,0);
+  lcd.write(255);
+  lcd.write(6);
+  lcd.write(5);
+  lcd.setCursor(startingX, 1);
+  lcd.write(255);
+  lcd.write(7);
+  lcd.write(2);
+  return startingX+3;
+}
 
 void setupLetterBuildingBlocks(LiquidCrystal lcd) {
   lcd.createChar(8,LT);
@@ -107,11 +144,12 @@ void writeText(LiquidCrystal lcd, Letter** text, int textLength) {
   for (int i = 0; i < textLength; i++) {
     xPos = text[i]->write(xPos);
 
-    // Add space between each character
+    // Add space between letters
     lcd.setCursor(xPos, 0);
     lcd.write(254);
     lcd.setCursor(xPos, 1);
     lcd.write(254);
     xPos++;
+    
   }
 }

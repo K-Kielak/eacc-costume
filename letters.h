@@ -49,6 +49,24 @@ public:
     byte write(int startingX) override;
 };
 
+class R : public Letter {
+public:
+    R(LiquidCrystal &lcdRef);
+    byte write(int startingX) override;
+};
+
+class K : public Letter {
+public:
+    K(LiquidCrystal &lcdRef);
+    byte write(int startingX) override;
+};
+
+class B : public Letter {
+public:
+    B(LiquidCrystal &lcdRef);
+    byte write(int startingX) override;
+};
+
 void writeText(LiquidCrystal lcd, Letter** text, int textLength);
 void setupLetterBuildingBlocks(LiquidCrystal lcd);
 
